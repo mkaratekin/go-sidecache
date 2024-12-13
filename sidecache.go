@@ -2,7 +2,7 @@ package go_sidecache
 
 import (
 	"errors"
-	"github.com/mkaratekin/go-sidecache/service"
+	"github.com/mkaratekin/go-sidecache/cache"
 	"net/http"
 )
 
@@ -13,7 +13,7 @@ type Sidecache interface {
 
 type sidecache struct {
 	client       *http.Client
-	cacheService service.CacheService
+	cacheService cache.CacheService
 }
 
 func NewSidecache(client *http.Client) (Sidecache, error) {
@@ -21,7 +21,7 @@ func NewSidecache(client *http.Client) (Sidecache, error) {
 		return nil, errors.New("client is nil")
 	}
 
-	cacheService := service.NewCacheService(client)
+	cacheService := cache.NewCacheService(client)
 
 	return &sidecache{client: client, cacheService: cacheService}, nil
 
