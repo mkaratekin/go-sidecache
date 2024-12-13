@@ -2,7 +2,7 @@ package go_sidecache
 
 import (
 	"errors"
-	"go-sidecache/service"
+	"github.com/mkaratekin/go-sidecache/service"
 	"net/http"
 )
 
